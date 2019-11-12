@@ -1,7 +1,7 @@
 language: node_js
 
 script: 
-  - zip README.md
+  - zip README.md.zip README.md
 
 after_success:
   - curl --ftp-create-dirs
