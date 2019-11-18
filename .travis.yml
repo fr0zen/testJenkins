@@ -13,3 +13,4 @@ after_success:
   - mv * build
   - tar -czf package.tgz build
   - sshpass -p $password scp -o stricthostkeychecking=no -P $port package.tgz $user@$host:$path
+  - sshpass -p $password ssh -p $port $user@$host $path/deploy.sh
