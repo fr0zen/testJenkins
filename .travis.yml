@@ -2,8 +2,14 @@ language: node_js
 
 script: 
   - zip README.md.zip README.md
-
+  
+addons:
+    apt:
+        packages:
+            - sshpass
+            
 after_success: 
   - mkdir build
   - mv * build
   - tar -czf package.tgz build
+  - sshpass -p $password scp -o stricthostkeychecking=no -P $port package.tgz $user@$host:$path
