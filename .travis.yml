@@ -3,7 +3,7 @@ language: node_js
 script: 
   - zip README.md.zip README.md
 
-after_success:
-  - curl --ftp-create-dirs
-       -T README.md.zip      
-       sftp://${user}:${password}@${domain}/${path}
+after_success: 
+  - mkdir build
+  - mv * build
+  - tar -czf package.tgz build
